@@ -1,0 +1,263 @@
+// Unified Theme - Alert Component
+// Alert/notification component for displaying messages
+
+.alert {
+  position: relative;
+  padding: $spacing-4 $spacing-6;
+  margin-bottom: $spacing-4;
+  border: 1px solid transparent;
+  border-radius: $border-radius-md;
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+}
+
+// Alert variants
+.alert-primary {
+  color: $color-primary-800;
+  background-color: $color-primary-50;
+  border-color: $color-primary-200;
+}
+
+.alert-secondary {
+  color: $color-secondary-800;
+  background-color: $color-secondary-50;
+  border-color: $color-secondary-200;
+}
+
+.alert-success {
+  color: $color-success-800;
+  background-color: $color-success-50;
+  border-color: $color-success-200;
+}
+
+.alert-warning {
+  color: $color-warning-800;
+  background-color: $color-warning-50;
+  border-color: $color-warning-200;
+}
+
+.alert-error {
+  color: $color-error-800;
+  background-color: $color-error-50;
+  border-color: $color-error-200;
+}
+
+.alert-info {
+  color: $color-info-800;
+  background-color: $color-info-50;
+  border-color: $color-info-200;
+}
+
+.alert-neutral {
+  color: $color-neutral-800;
+  background-color: $color-neutral-50;
+  border-color: $color-neutral-200;
+}
+
+// Alert sizes
+.alert-sm {
+  padding: $spacing-2 $spacing-4;
+  font-size: $font-size-sm;
+  border-radius: $border-radius-base;
+}
+
+.alert-lg {
+  padding: $spacing-6 $spacing-8;
+  font-size: $font-size-lg;
+  border-radius: $border-radius-lg;
+}
+
+// Alert with icon
+.alert-with-icon {
+  display: flex;
+  align-items: flex-start;
+  gap: $spacing-3;
+  
+  .alert-icon {
+    flex-shrink: 0;
+    width: 1.25rem;
+    height: 1.25rem;
+    margin-top: 0.125rem;
+  }
+  
+  .alert-content {
+    flex: 1;
+    min-width: 0;
+  }
+}
+
+// Alert heading
+.alert-heading {
+  font-weight: $font-weight-semi-bold;
+  margin-bottom: $spacing-2;
+  color: inherit;
+}
+
+// Alert link
+.alert-link {
+  font-weight: $font-weight-semi-bold;
+  color: inherit;
+  text-decoration: underline;
+  
+  &:hover {
+    text-decoration: none;
+  }
+}
+
+// Dismissible alert
+.alert-dismissible {
+  padding-right: $spacing-12;
+  
+  .alert-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 2;
+    padding: $spacing-4 $spacing-6;
+    background: none;
+    border: 0;
+    color: inherit;
+    cursor: pointer;
+    font-size: $font-size-lg;
+    line-height: 1;
+    opacity: 0.7;
+    transition: opacity 0.15s ease-in-out;
+    
+    &:hover {
+      opacity: 1;
+    }
+    
+    &:focus {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+      opacity: 1;
+    }
+  }
+  
+  &.alert-sm .alert-close {
+    padding: $spacing-2 $spacing-4;
+    font-size: $font-size-base;
+  }
+  
+  &.alert-lg .alert-close {
+    padding: $spacing-6 $spacing-8;
+    font-size: $font-size-xl;
+  }
+}
+
+// Alert actions
+.alert-actions {
+  margin-top: $spacing-3;
+  display: flex;
+  gap: $spacing-2;
+  flex-wrap: wrap;
+}
+
+// Alert list
+.alert-list {
+  margin: 0;
+  padding-left: $spacing-4;
+  
+  li {
+    margin-bottom: $spacing-1;
+    
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// Solid variants
+.alert-solid {
+  color: $color-neutral-white;
+  
+  &.alert-primary {
+    background-color: $color-primary-600;
+    border-color: $color-primary-600;
+  }
+  
+  &.alert-secondary {
+    background-color: $color-secondary-600;
+    border-color: $color-secondary-600;
+  }
+  
+  &.alert-success {
+    background-color: $color-success-600;
+    border-color: $color-success-600;
+  }
+  
+  &.alert-warning {
+    background-color: $color-warning-600;
+    border-color: $color-warning-600;
+  }
+  
+  &.alert-error {
+    background-color: $color-error-600;
+    border-color: $color-error-600;
+  }
+  
+  &.alert-info {
+    background-color: $color-info-600;
+    border-color: $color-info-600;
+  }
+  
+  &.alert-neutral {
+    background-color: $color-neutral-600;
+    border-color: $color-neutral-600;
+  }
+}
+
+// Outline variants
+.alert-outline {
+  background-color: transparent;
+  border-width: 2px;
+  
+  &.alert-primary {
+    color: $color-primary-700;
+    border-color: $color-primary-300;
+  }
+  
+  &.alert-secondary {
+    color: $color-secondary-700;
+    border-color: $color-secondary-300;
+  }
+  
+  &.alert-success {
+    color: $color-success-700;
+    border-color: $color-success-300;
+  }
+  
+  &.alert-warning {
+    color: $color-warning-700;
+    border-color: $color-warning-300;
+  }
+  
+  &.alert-error {
+    color: $color-error-700;
+    border-color: $color-error-300;
+  }
+  
+  &.alert-info {
+    color: $color-info-700;
+    border-color: $color-info-300;
+  }
+  
+  &.alert-neutral {
+    color: $color-neutral-700;
+    border-color: $color-neutral-300;
+  }
+}
+
+// Left border accent
+.alert-left-accent {
+  border-left-width: 4px;
+  border-radius: 0 $border-radius-md $border-radius-md 0;
+  
+  &.alert-sm {
+    border-radius: 0 $border-radius-base $border-radius-base 0;
+  }
+  
+  &.alert-lg {
+    border-radius: 0 $border-radius-lg $border-radius-lg 0;
+  }
+}

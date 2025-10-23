@@ -1,0 +1,264 @@
+// Unified Theme - Utility Classes
+// Comprehensive utility classes based on design tokens
+
+// Helper function to generate utility classes
+@function get-spacing($key) {
+  @return map-get($spacing, $key);
+}
+
+@function get-color($color, $shade: 500) {
+  $color-map: map-get($colors, $color);
+  @return map-get($color-map, $shade);
+}
+
+// Display utilities
+.block { display: block; }
+.inline-block { display: inline-block; }
+.inline { display: inline; }
+.flex { display: flex; }
+.inline-flex { display: inline-flex; }
+.table { display: table; }
+.inline-table { display: inline-table; }
+.table-caption { display: table-caption; }
+.table-cell { display: table-cell; }
+.table-column { display: table-column; }
+.table-column-group { display: table-column-group; }
+.table-footer-group { display: table-footer-group; }
+.table-header-group { display: table-header-group; }
+.table-row-group { display: table-row-group; }
+.table-row { display: table-row; }
+.flow-root { display: flow-root; }
+.grid { display: grid; }
+.inline-grid { display: inline-grid; }
+.contents { display: contents; }
+.list-item { display: list-item; }
+.hidden { display: none; }
+
+// Visibility utilities
+.visible { visibility: visible; }
+.invisible { visibility: hidden; }
+
+// Position utilities
+.static { position: static; }
+.fixed { position: fixed; }
+.absolute { position: absolute; }
+.relative { position: relative; }
+.sticky { position: sticky; }
+
+// Flexbox utilities
+.flex-row { flex-direction: row; }
+.flex-row-reverse { flex-direction: row-reverse; }
+.flex-col { flex-direction: column; }
+.flex-col-reverse { flex-direction: column-reverse; }
+
+.flex-wrap { flex-wrap: wrap; }
+.flex-wrap-reverse { flex-wrap: wrap-reverse; }
+.flex-nowrap { flex-wrap: nowrap; }
+
+.flex-1 { flex: 1 1 0%; }
+.flex-auto { flex: 1 1 auto; }
+.flex-initial { flex: 0 1 auto; }
+.flex-none { flex: none; }
+
+.flex-grow { flex-grow: 1; }
+.flex-grow-0 { flex-grow: 0; }
+
+.flex-shrink { flex-shrink: 1; }
+.flex-shrink-0 { flex-shrink: 0; }
+
+// Justify content utilities
+.justify-start { justify-content: flex-start; }
+.justify-end { justify-content: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-around { justify-content: space-around; }
+.justify-evenly { justify-content: space-evenly; }
+
+// Align items utilities
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.items-center { align-items: center; }
+.items-baseline { align-items: baseline; }
+.items-stretch { align-items: stretch; }
+
+// Align content utilities
+.content-start { align-content: flex-start; }
+.content-end { align-content: flex-end; }
+.content-center { align-content: center; }
+.content-between { align-content: space-between; }
+.content-around { align-content: space-around; }
+.content-evenly { align-content: space-evenly; }
+
+// Align self utilities
+.self-auto { align-self: auto; }
+.self-start { align-self: flex-start; }
+.self-end { align-self: flex-end; }
+.self-center { align-self: center; }
+.self-stretch { align-self: stretch; }
+.self-baseline { align-self: baseline; }
+
+// Text alignment utilities
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+.text-justify { text-align: justify; }
+
+// Text decoration utilities
+.underline { text-decoration: underline; }
+.overline { text-decoration: overline; }
+.line-through { text-decoration: line-through; }
+.no-underline { text-decoration: none; }
+
+// Text transform utilities
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+.normal-case { text-transform: none; }
+
+// Font weight utilities
+.font-thin { font-weight: $font-weight-thin; }
+.font-extralight { font-weight: $font-weight-extra-light; }
+.font-light { font-weight: $font-weight-light; }
+.font-normal { font-weight: $font-weight-normal; }
+.font-medium { font-weight: $font-weight-medium; }
+.font-semibold { font-weight: $font-weight-semi-bold; }
+.font-bold { font-weight: $font-weight-bold; }
+.font-extrabold { font-weight: $font-weight-extra-bold; }
+.font-black { font-weight: $font-weight-black; }
+
+// Font family utilities
+.font-sans { font-family: $font-family-sans; }
+.font-serif { font-family: $font-family-serif; }
+.font-mono { font-family: $font-family-mono; }
+
+// Overflow utilities
+.overflow-auto { overflow: auto; }
+.overflow-hidden { overflow: hidden; }
+.overflow-clip { overflow: clip; }
+.overflow-visible { overflow: visible; }
+.overflow-scroll { overflow: scroll; }
+
+.overflow-x-auto { overflow-x: auto; }
+.overflow-y-auto { overflow-y: auto; }
+.overflow-x-hidden { overflow-x: hidden; }
+.overflow-y-hidden { overflow-y: hidden; }
+.overflow-x-clip { overflow-x: clip; }
+.overflow-y-clip { overflow-y: clip; }
+.overflow-x-visible { overflow-x: visible; }
+.overflow-y-visible { overflow-y: visible; }
+.overflow-x-scroll { overflow-x: scroll; }
+.overflow-y-scroll { overflow-y: scroll; }
+
+// Generate spacing utilities
+@each $key, $value in $spacing {
+  // Margin utilities
+  .m-#{$key} { margin: #{$value}; }
+  .mx-#{$key} { margin-left: #{$value}; margin-right: #{$value}; }
+  .my-#{$key} { margin-top: #{$value}; margin-bottom: #{$value}; }
+  .mt-#{$key} { margin-top: #{$value}; }
+  .mr-#{$key} { margin-right: #{$value}; }
+  .mb-#{$key} { margin-bottom: #{$value}; }
+  .ml-#{$key} { margin-left: #{$value}; }
+  
+  // Padding utilities
+  .p-#{$key} { padding: #{$value}; }
+  .px-#{$key} { padding-left: #{$value}; padding-right: #{$value}; }
+  .py-#{$key} { padding-top: #{$value}; padding-bottom: #{$value}; }
+  .pt-#{$key} { padding-top: #{$value}; }
+  .pr-#{$key} { padding-right: #{$value}; }
+  .pb-#{$key} { padding-bottom: #{$value}; }
+  .pl-#{$key} { padding-left: #{$value}; }
+  
+  // Gap utilities
+  .gap-#{$key} { gap: #{$value}; }
+  .gap-x-#{$key} { column-gap: #{$value}; }
+  .gap-y-#{$key} { row-gap: #{$value}; }
+  
+  // Space utilities (for direct children)
+  .space-x-#{$key} > * + * { margin-left: #{$value}; }
+  .space-y-#{$key} > * + * { margin-top: #{$value}; }
+}
+
+// Generate border radius utilities
+@each $key, $value in $border-radius {
+  .rounded-#{$key} { border-radius: #{$value}; }
+  .rounded-t-#{$key} { 
+    border-top-left-radius: #{$value}; 
+    border-top-right-radius: #{$value}; 
+  }
+  .rounded-r-#{$key} { 
+    border-top-right-radius: #{$value}; 
+    border-bottom-right-radius: #{$value}; 
+  }
+  .rounded-b-#{$key} { 
+    border-bottom-right-radius: #{$value}; 
+    border-bottom-left-radius: #{$value}; 
+  }
+  .rounded-l-#{$key} { 
+    border-top-left-radius: #{$value}; 
+    border-bottom-left-radius: #{$value}; 
+  }
+  .rounded-tl-#{$key} { border-top-left-radius: #{$value}; }
+  .rounded-tr-#{$key} { border-top-right-radius: #{$value}; }
+  .rounded-br-#{$key} { border-bottom-right-radius: #{$value}; }
+  .rounded-bl-#{$key} { border-bottom-left-radius: #{$value}; }
+}
+
+// Generate shadow utilities
+@each $key, $value in $shadows {
+  .shadow-#{$key} { box-shadow: #{$value}; }
+}
+
+// Generate opacity utilities
+@each $key, $value in $opacity {
+  .opacity-#{$key} { opacity: #{$value}; }
+}
+
+// Generate z-index utilities
+@each $key, $value in $z-index {
+  .z-#{$key} { z-index: #{$value}; }
+}
+
+// Width and height utilities
+.w-auto { width: auto; }
+.w-full { width: 100%; }
+.w-screen { width: 100vw; }
+.w-min { width: min-content; }
+.w-max { width: max-content; }
+.w-fit { width: fit-content; }
+
+.h-auto { height: auto; }
+.h-full { height: 100%; }
+.h-screen { height: 100vh; }
+.h-min { height: min-content; }
+.h-max { height: max-content; }
+.h-fit { height: fit-content; }
+
+// Container utility
+.container {
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: $spacing-4;
+  padding-right: $spacing-4;
+  
+  @include media-sm {
+    max-width: map-get($container-widths, sm);
+  }
+  
+  @include media-md {
+    max-width: map-get($container-widths, md);
+  }
+  
+  @include media-lg {
+    max-width: map-get($container-widths, lg);
+  }
+  
+  @include media-xl {
+    max-width: map-get($container-widths, xl);
+  }
+  
+  @include media-2xl {
+    max-width: map-get($container-widths, 2xl);
+  }
+}

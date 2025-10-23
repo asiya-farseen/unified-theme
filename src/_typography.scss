@@ -1,0 +1,191 @@
+// Unified Theme - Typography Styles
+// Typography classes based on the design tokens
+
+// Generate typography scale classes
+@each $scale, $properties in $typography-scale {
+  .text-#{$scale} {
+    font-size: map-get($properties, 'font-size');
+    line-height: map-get($properties, 'line-height');
+    font-weight: map-get($properties, 'font-weight');
+    letter-spacing: map-get($properties, 'letter-spacing');
+    
+    @if map-has-key($properties, 'text-transform') {
+      text-transform: map-get($properties, 'text-transform');
+    }
+  }
+}
+
+// Semantic typography classes
+.heading-display {
+  @extend .text-display-lg;
+  color: $color-neutral-900;
+  
+  @include media-md {
+    @extend .text-display-xl;
+  }
+  
+  @include media-lg {
+    @extend .text-display-2xl;
+  }
+}
+
+.heading-primary {
+  @extend .text-heading-lg;
+  color: $color-neutral-900;
+  
+  @include media-md {
+    @extend .text-heading-xl;
+  }
+}
+
+.heading-secondary {
+  @extend .text-heading-md;
+  color: $color-neutral-800;
+  
+  @include media-md {
+    @extend .text-heading-lg;
+  }
+}
+
+.heading-tertiary {
+  @extend .text-heading-sm;
+  color: $color-neutral-700;
+  
+  @include media-md {
+    @extend .text-heading-md;
+  }
+}
+
+.body-large {
+  @extend .text-body-lg;
+  color: $color-neutral-700;
+}
+
+.body-default {
+  @extend .text-body-md;
+  color: $color-neutral-600;
+}
+
+.body-small {
+  @extend .text-body-sm;
+  color: $color-neutral-500;
+}
+
+.caption-text {
+  @extend .text-caption;
+  color: $color-neutral-500;
+}
+
+.overline-text {
+  @extend .text-overline;
+  color: $color-neutral-400;
+}
+
+// Link styles
+.link {
+  color: $color-primary-600;
+  text-decoration: underline;
+  transition: color 0.15s ease-in-out;
+  
+  &:hover {
+    color: $color-primary-700;
+  }
+  
+  &:focus {
+    outline: 2px solid $color-primary-500;
+    outline-offset: 2px;
+  }
+  
+  &:active {
+    color: $color-primary-800;
+  }
+}
+
+.link-subtle {
+  @extend .link;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// Text color utilities
+@each $color-name, $color-map in $colors {
+  @each $shade, $color-value in $color-map {
+    .text-#{$color-name}-#{$shade} {
+      color: #{$color-value};
+    }
+  }
+}
+
+// Text size utilities (additional to typography scale)
+.text-xs { font-size: $font-size-xs; }
+.text-sm { font-size: $font-size-sm; }
+.text-base { font-size: $font-size-base; }
+.text-lg { font-size: $font-size-lg; }
+.text-xl { font-size: $font-size-xl; }
+.text-2xl { font-size: $font-size-2xl; }
+.text-3xl { font-size: $font-size-3xl; }
+.text-4xl { font-size: $font-size-4xl; }
+.text-5xl { font-size: $font-size-5xl; }
+.text-6xl { font-size: $font-size-6xl; }
+.text-7xl { font-size: $font-size-7xl; }
+.text-8xl { font-size: $font-size-8xl; }
+.text-9xl { font-size: $font-size-9xl; }
+
+// Line height utilities
+.leading-none { line-height: $line-height-none; }
+.leading-tight { line-height: $line-height-tight; }
+.leading-snug { line-height: $line-height-snug; }
+.leading-normal { line-height: $line-height-normal; }
+.leading-relaxed { line-height: $line-height-relaxed; }
+.leading-loose { line-height: $line-height-loose; }
+
+// Letter spacing utilities
+.tracking-tighter { letter-spacing: $letter-spacing-tighter; }
+.tracking-tight { letter-spacing: $letter-spacing-tight; }
+.tracking-normal { letter-spacing: $letter-spacing-normal; }
+.tracking-wide { letter-spacing: $letter-spacing-wide; }
+.tracking-wider { letter-spacing: $letter-spacing-wider; }
+.tracking-widest { letter-spacing: $letter-spacing-widest; }
+
+// Text styling utilities
+.italic { font-style: italic; }
+.not-italic { font-style: normal; }
+
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.subpixel-antialiased {
+  -webkit-font-smoothing: auto;
+  -moz-osx-font-smoothing: auto;
+}
+
+// Text overflow utilities
+.truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.text-ellipsis { text-overflow: ellipsis; }
+.text-clip { text-overflow: clip; }
+
+// White space utilities
+.whitespace-normal { white-space: normal; }
+.whitespace-nowrap { white-space: nowrap; }
+.whitespace-pre { white-space: pre; }
+.whitespace-pre-line { white-space: pre-line; }
+.whitespace-pre-wrap { white-space: pre-wrap; }
+
+// Word break utilities
+.break-normal {
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.break-words { overflow-wrap: break-word; }
+.break-all { word-break: break-all; }

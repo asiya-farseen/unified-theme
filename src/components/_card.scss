@@ -1,0 +1,336 @@
+// Unified Theme - Card Component
+// Flexible card component for content organization
+
+.card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  word-wrap: break-word;
+  background-color: $color-neutral-white;
+  background-clip: border-box;
+  border: 1px solid $color-neutral-200;
+  border-radius: $border-radius-lg;
+  box-shadow: $shadow-sm;
+  transition: box-shadow 0.15s ease-in-out, border-color 0.15s ease-in-out;
+}
+
+// Card variants
+.card-elevated {
+  border: none;
+  box-shadow: $shadow-md;
+  
+  &:hover {
+    box-shadow: $shadow-lg;
+  }
+}
+
+.card-outlined {
+  border: 2px solid $color-neutral-300;
+  box-shadow: none;
+}
+
+.card-filled {
+  background-color: $color-neutral-50;
+  border-color: $color-neutral-300;
+}
+
+// Card sizes
+.card-sm {
+  border-radius: $border-radius-base;
+}
+
+.card-lg {
+  border-radius: $border-radius-xl;
+}
+
+// Card header
+.card-header {
+  padding: $spacing-6 $spacing-6 0;
+  margin-bottom: 0;
+  background-color: transparent;
+  border-bottom: none;
+  
+  &:first-child {
+    border-radius: $border-radius-lg $border-radius-lg 0 0;
+  }
+  
+  .card-sm & {
+    padding: $spacing-4 $spacing-4 0;
+    border-radius: $border-radius-base $border-radius-base 0 0;
+  }
+  
+  .card-lg & {
+    padding: $spacing-8 $spacing-8 0;
+    border-radius: $border-radius-xl $border-radius-xl 0 0;
+  }
+}
+
+.card-header-bordered {
+  padding-bottom: $spacing-6;
+  border-bottom: 1px solid $color-neutral-200;
+  
+  .card-sm & {
+    padding-bottom: $spacing-4;
+  }
+  
+  .card-lg & {
+    padding-bottom: $spacing-8;
+  }
+}
+
+// Card title
+.card-title {
+  margin-bottom: $spacing-2;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-semi-bold;
+  line-height: $line-height-tight;
+  color: $color-neutral-900;
+  
+  .card-sm & {
+    font-size: $font-size-lg;
+    margin-bottom: $spacing-1;
+  }
+  
+  .card-lg & {
+    font-size: $font-size-2xl;
+    margin-bottom: $spacing-3;
+  }
+}
+
+.card-subtitle {
+  margin-bottom: $spacing-4;
+  font-size: $font-size-sm;
+  font-weight: $font-weight-normal;
+  color: $color-neutral-600;
+  
+  .card-sm & {
+    margin-bottom: $spacing-3;
+    font-size: $font-size-xs;
+  }
+  
+  .card-lg & {
+    margin-bottom: $spacing-6;
+    font-size: $font-size-base;
+  }
+}
+
+// Card body
+.card-body {
+  flex: 1 1 auto;
+  padding: $spacing-6;
+  
+  .card-sm & {
+    padding: $spacing-4;
+  }
+  
+  .card-lg & {
+    padding: $spacing-8;
+  }
+}
+
+// Card text
+.card-text {
+  font-size: $font-size-base;
+  line-height: $line-height-relaxed;
+  color: $color-neutral-700;
+  
+  &:last-child {
+    margin-bottom: 0;
+  }
+  
+  .card-sm & {
+    font-size: $font-size-sm;
+  }
+  
+  .card-lg & {
+    font-size: $font-size-lg;
+  }
+}
+
+// Card footer
+.card-footer {
+  padding: 0 $spacing-6 $spacing-6;
+  background-color: transparent;
+  border-top: none;
+  
+  &:last-child {
+    border-radius: 0 0 $border-radius-lg $border-radius-lg;
+  }
+  
+  .card-sm & {
+    padding: 0 $spacing-4 $spacing-4;
+    border-radius: 0 0 $border-radius-base $border-radius-base;
+  }
+  
+  .card-lg & {
+    padding: 0 $spacing-8 $spacing-8;
+    border-radius: 0 0 $border-radius-xl $border-radius-xl;
+  }
+}
+
+.card-footer-bordered {
+  padding-top: $spacing-6;
+  border-top: 1px solid $color-neutral-200;
+  
+  .card-sm & {
+    padding-top: $spacing-4;
+  }
+  
+  .card-lg & {
+    padding-top: $spacing-8;
+  }
+}
+
+// Card image
+.card-img {
+  width: 100%;
+  border-radius: $border-radius-lg;
+}
+
+.card-img-top {
+  width: 100%;
+  border-top-left-radius: $border-radius-lg;
+  border-top-right-radius: $border-radius-lg;
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  
+  .card-sm & {
+    border-top-left-radius: $border-radius-base;  
+    border-top-right-radius: $border-radius-base;
+  }
+  
+  .card-lg & {
+    border-top-left-radius: $border-radius-xl;
+    border-top-right-radius: $border-radius-xl;
+  }
+}
+
+.card-img-bottom {
+  width: 100%;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: $border-radius-lg;
+  border-bottom-left-radius: $border-radius-lg;
+  
+  .card-sm & {
+    border-bottom-right-radius: $border-radius-base;
+    border-bottom-left-radius: $border-radius-base;
+  }
+  
+  .card-lg & {
+    border-bottom-right-radius: $border-radius-xl;
+    border-bottom-left-radius: $border-radius-xl;
+  }
+}
+
+// Card overlay
+.card-img-overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: $spacing-6;
+  border-radius: $border-radius-lg;
+  
+  .card-sm & {
+    padding: $spacing-4;
+    border-radius: $border-radius-base;
+  }
+  
+  .card-lg & {
+    padding: $spacing-8;
+    border-radius: $border-radius-xl;
+  }
+}
+
+// Card group
+.card-group {
+  display: flex;
+  flex-direction: column;
+  
+  .card {
+    margin-bottom: $spacing-4;
+  }
+  
+  @include media-sm {
+    flex-direction: row;
+    
+    .card {
+      flex: 1 0 0%;
+      margin-bottom: 0;
+      
+      &:not(:last-child) {
+        border-right: 0;
+        border-top-right-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+      
+      &:not(:first-child) {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+}
+
+// Card deck
+.card-deck {
+  display: flex;
+  flex-direction: column;
+  
+  .card {
+    margin-bottom: $spacing-4;
+  }
+  
+  @include media-sm {
+    flex-direction: row;
+    margin-right: -$spacing-4;
+    margin-left: -$spacing-4;
+    
+    .card {
+      flex: 1 0 0%;
+      margin-right: $spacing-4;
+      margin-bottom: 0;
+      margin-left: $spacing-4;
+    }
+  }
+}
+
+// Card columns
+.card-columns {
+  @include media-sm {
+    column-count: 2;
+    column-gap: $spacing-4;
+    orphans: 1;
+    widows: 1;
+    
+    .card {
+      display: inline-block;
+      width: 100%;
+      margin-bottom: $spacing-4;
+    }
+  }
+  
+  @include media-lg {
+    column-count: 3;
+  }
+}
+
+// Interactive card
+.card-interactive {
+  cursor: pointer;
+  transition: all 0.2s ease-in-out;
+  
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: $shadow-lg;
+    border-color: $color-neutral-300;
+  }
+  
+  &:active {
+    transform: translateY(0);
+    box-shadow: $shadow-md;
+  }
+}
