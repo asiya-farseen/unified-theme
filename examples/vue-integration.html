@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Example - Unified Theme</title>
+    <link rel="stylesheet" href="../../dist/unified-theme.css">
+</head>
+<body>
+    <div id="app" class="container my-8">
+        <h1 class="text-heading-xl mb-6">Vue.js Integration Example</h1>
+        
+        <div class="alert alert-info mb-6">
+            <strong>Note:</strong> This is a static HTML example showing how Unified Theme works with Vue.js components.
+            In a real Vue app, you would import the CSS and use the classes directly in your templates.
+        </div>
+        
+        <!-- Vue Component Examples -->
+        <div class="card mb-8">
+            <div class="card-header">
+                <h2 class="card-title">Vue Button Component</h2>
+            </div>
+            <div class="card-body">
+                <p class="card-text mb-4">
+                    Here's how you might create a Button component in Vue.js using Unified Theme classes:
+                </p>
+                
+                <div class="bg-neutral-100 p-4 rounded-md mb-4">
+                    <code class="text-sm">
+                        <pre>
+&lt;!-- Button.vue --&gt;
+&lt;template&gt;
+  &lt;button 
+    :class="buttonClasses" 
+    :disabled="disabled"
+    @click="handleClick"
+  &gt;
+    &lt;slot /&gt;
+  &lt;/button&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: 'Button',
+  props: {
+    variant: {
+      type: String,
+      default: 'primary'
+    },
+    size: {
+      type: String,
+      default: 'md'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    }
+  },
+  computed: {
+    buttonClasses() {
+      return [
+        'btn',
+        `btn-${this.variant}`,
+        `btn-${this.size}`,
+        {
+          'disabled': this.disabled
+        }
+      ];
+    }
+  },
+  methods: {
+    handleClick(event) {
+      if (!this.disabled) {
+        this.$emit('click', event);
+      }
+    }
+  }
+};
+&lt;/script&gt;
+                        </pre>
+                    </code>
+                </div>
+                
+                <p class="text-sm text-neutral-600 mb-4">Usage:</p>
+                <div class="component-preview">
+                    <div class="flex gap-3 flex-wrap">
+                        <button class="btn btn-primary btn-md">Primary</button>
+                        <button class="btn btn-secondary btn-md">Secondary</button>
+                        <button class="btn btn-outline-primary btn-md">Outline</button>
+                        <button class="btn btn-primary btn-lg">Large</button>
+                        <button class="btn btn-primary btn-sm">Small</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Vue Form Example -->
+        <div class="card mb-8">
+            <div class="card-header">
+                <h2 class="card-title">Vue Form Component</h2>
+            </div>
+            <div class="card-body">
+                <div class="bg-neutral-100 p-4 rounded-md mb-4">
+                    <code class="text-sm">
+                        <pre>
+&lt;!-- FormInput.vue --&gt;
+&lt;template&gt;
+  &lt;div class="form-group"&gt;
+    &lt;label v-if="label" class="form-label"&gt;{{ label }}&lt;/label&gt;
+    &lt;input 
+      :class="inputClasses"
+      :type="type"
+      :placeholder="placeholder"
+      :value="modelValue"
+      @input="$emit('update:modelValue', $event.target.value)"
+    /&gt;
+    &lt;div v-if="error" class="text-error-600 text-sm mt-1"&gt;
+      {{ error }}
+    &lt;/div&gt;
+    &lt;div v-if="helpText" class="form-text"&gt;
+      {{ helpText }}
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: 'FormInput',
+  props: {
+    label: String,
+    type: {
+      type: String,
+      default: 'text'
+    },
+    placeholder: String,
+    modelValue: String,
+    error: String,
+    helpText: String,
+    size: {
+      type: String,
+      default: 'md'
+    }
+  },
+  emits: ['update:modelValue'],
+  computed: {
+    inputClasses() {
+      return [
+        'form-control',
+        this.size !== 'md' && `form-control-${this.size}`,
+        this.error && 'form-control-error'
+      ].filter(Boolean);
+    }
+  }
+};
+&lt;/script&gt;
+                        </pre>
+                    </code>
+                </div>
+                
+                <div class="component-preview">
+                    <form class="space-y-4 max-w-md">
+                        <div class="form-group">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control form-control-error" placeholder="Enter your email" value="invalid-email">
+                            <div class="text-error-600 text-sm mt-1">Please enter a valid email address</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Age</label>
+                            <select class="form-select">
+                                <option>Select your age range</option>
+                                <option>18-25</option>
+                                <option>26-35</option>
+                                <option>36-45</option>
+                                <option>45+</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-check">
+                            <input class="form-check-input" type="checkbox" id="vue-newsletter">
+                            <label class="form-check-label" for="vue-newsletter">
+                                Subscribe to newsletter
+                            </label>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Vue Modal Example -->
+        <div class="card mb-8">
+            <div class="card-header">
+                <h2 class="card-title">Vue Modal Component</h2>
+            </div>
+            <div class="card-body">
+                <div class="bg-neutral-100 p-4 rounded-md mb-4">
+                    <code class="text-sm">
+                        <pre>
+&lt;!-- Modal.vue --&gt;
+&lt;template&gt;
+  &lt;div 
+    v-if="show" 
+    class="fixed inset-0 z-50 overflow-y-auto"
+    @click="handleBackdropClick"
+  &gt;
+    &lt;div class="flex items-center justify-center min-h-screen px-4"&gt;
+      &lt;div class="fixed inset-0 bg-black opacity-50"&gt;&lt;/div&gt;
+      &lt;div 
+        class="relative bg-white rounded-lg shadow-lg max-w-md w-full"
+        @click.stop
+      &gt;
+        &lt;div class="card"&gt;
+          &lt;div v-if="title" class="card-header card-header-bordered"&gt;
+            &lt;h3 class="card-title"&gt;{{ title }}&lt;/h3&gt;
+            &lt;button 
+              class="absolute top-4 right-4 text-neutral-400 hover:text-neutral-600"
+              @click="close"
+            &gt;
+              &times;
+            &lt;/button&gt;
+          &lt;/div&gt;
+          &lt;div class="card-body"&gt;
+            &lt;slot /&gt;
+          &lt;/div&gt;
+          &lt;div v-if="$slots.footer" class="card-footer card-footer-bordered"&gt;
+            &lt;slot name="footer" /&gt;
+          &lt;/div&gt;
+        &lt;/div&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script&gt;
+export default {
+  name: 'Modal',
+  props: {
+    show: {
+      type: Boolean,
+      default: false
+    },
+    title: String,
+    closable: {
+      type: Boolean,
+      default: true
+    }
+  },
+  methods: {
+    close() {
+      if (this.closable) {
+        this.$emit('close');
+      }
+    },
+    handleBackdropClick() {
+      if (this.closable) {
+        this.close();
+      }
+    }
+  }
+};
+&lt;/script&gt;
+                        </pre>
+                    </code>
+                </div>
+                
+                <div class="component-preview">
+                    <button class="btn btn-primary" onclick="showModal()">Open Modal</button>
+                    
+                    <div id="demo-modal" class="fixed inset-0 z-50 overflow-y-auto hidden">
+                        <div class="flex items-center justify-center min-h-screen px-4">
+                            <div class="fixed inset-0 bg-black opacity-50" onclick="hideModal()"></div>
+                            <div class="relative bg-white rounded-lg shadow-lg max-w-md w-full">
+                                <div class="card">
+                                    <div class="card-header card-header-bordered">
+                                        <h3 class="card-title">Confirm Action</h3>
+                                        <button class="absolute top-4 right-4 text-neutral-400 hover:text-neutral-600" onclick="hideModal()">
+                                            &times;
+                                        </button>
+                                    </div>
+                                    <div class="card-body">
+                                        <p>Are you sure you want to continue with this action?</p>
+                                    </div>
+                                    <div class="card-footer card-footer-bordered">
+                                        <div class="flex justify-end gap-3">
+                                            <button class="btn btn-secondary btn-sm" onclick="hideModal()">Cancel</button>
+                                            <button class="btn btn-primary btn-sm" onclick="hideModal()">Confirm</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Composition API Example -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Vue 3 Composition API</h2>
+            </div>
+            <div class="card-body">
+                <div class="bg-neutral-100 p-4 rounded-md mb-4">
+                    <code class="text-sm">
+                        <pre>
+&lt;!-- Counter.vue --&gt;
+&lt;template&gt;
+  &lt;div class="card text-center"&gt;
+    &lt;div class="card-body"&gt;
+      &lt;h3 class="card-title text-4xl font-bold text-primary-600 mb-4"&gt;
+        {{ count }}
+      &lt;/h3&gt;
+      &lt;div class="flex justify-center gap-3"&gt;
+        &lt;button 
+          class="btn btn-outline-primary"
+          @click="decrement"
+          :disabled="count <= 0"
+        &gt;
+          -
+        &lt;/button&gt;
+        &lt;button class="btn btn-primary" @click="increment"&gt;
+          +
+        &lt;/button&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+&lt;/template&gt;
+
+&lt;script setup&gt;
+import { ref, computed } from 'vue';
+
+const count = ref(0);
+
+const increment = () => {
+  count.value++;
+};
+
+const decrement = () => {
+  if (count.value > 0) {
+    count.value--;
+  }
+};
+
+const isZero = computed(() => count.value === 0);
+&lt;/script&gt;
+                        </pre>
+                    </code>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="card text-center max-w-xs mx-auto">
+                        <div class="card-body">
+                            <h3 class="card-title text-4xl font-bold text-primary-600 mb-4" id="counter-display">0</h3>
+                            <div class="flex justify-center gap-3">
+                                <button class="btn btn-outline-primary" onclick="decrementCounter()" id="decrement-btn">
+                                    -
+                                </button>
+                                <button class="btn btn-primary" onclick="incrementCounter()">
+                                    +
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../../dist/unified-theme.js"></script>
+    <script>
+        // Demo functionality for the examples
+        function showModal() {
+            document.getElementById('demo-modal').classList.remove('hidden');
+        }
+        
+        function hideModal() {
+            document.getElementById('demo-modal').classList.add('hidden');
+        }
+        
+        let counter = 0;
+        
+        function incrementCounter() {
+            counter++;
+            document.getElementById('counter-display').textContent = counter;
+            updateDecrementButton();
+        }
+        
+        function decrementCounter() {
+            if (counter > 0) {
+                counter--;
+                document.getElementById('counter-display').textContent = counter;
+                updateDecrementButton();
+            }
+        }
+        
+        function updateDecrementButton() {
+            const btn = document.getElementById('decrement-btn');
+            if (counter <= 0) {
+                btn.classList.add('disabled');
+                btn.disabled = true;
+            } else {
+                btn.classList.remove('disabled');
+                btn.disabled = false;
+            }
+        }
+        
+        // Initialize
+        updateDecrementButton();
+    </script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+// Design Tokens - Spacing
+// These tokens define the spacing system for the unified theme
+
+// Base spacing unit (4px)
+$spacing-unit: 0.25rem;
+
+// Spacing Scale
+$spacing-0: 0;
+$spacing-px: 1px;
+$spacing-0-5: calc($spacing-unit * 0.5); // 2px
+$spacing-1: calc($spacing-unit * 1);     // 4px
+$spacing-1-5: calc($spacing-unit * 1.5); // 6px
+$spacing-2: calc($spacing-unit * 2);     // 8px
+$spacing-2-5: calc($spacing-unit * 2.5); // 10px
+$spacing-3: calc($spacing-unit * 3);     // 12px
+$spacing-3-5: calc($spacing-unit * 3.5); // 14px
+$spacing-4: calc($spacing-unit * 4);     // 16px
+$spacing-5: calc($spacing-unit * 5);     // 20px
+$spacing-6: calc($spacing-unit * 6);     // 24px
+$spacing-7: calc($spacing-unit * 7);     // 28px
+$spacing-8: calc($spacing-unit * 8);     // 32px
+$spacing-9: calc($spacing-unit * 9);     // 36px
+$spacing-10: calc($spacing-unit * 10);   // 40px
+$spacing-11: calc($spacing-unit * 11);   // 44px
+$spacing-12: calc($spacing-unit * 12);   // 48px
+$spacing-14: calc($spacing-unit * 14);   // 56px
+$spacing-16: calc($spacing-unit * 16);   // 64px
+$spacing-20: calc($spacing-unit * 20);   // 80px
+$spacing-24: calc($spacing-unit * 24);   // 96px
+$spacing-28: calc($spacing-unit * 28);   // 112px
+$spacing-32: calc($spacing-unit * 32);   // 128px
+$spacing-36: calc($spacing-unit * 36);   // 144px
+$spacing-40: calc($spacing-unit * 40);   // 160px
+$spacing-44: calc($spacing-unit * 44);   // 176px
+$spacing-48: calc($spacing-unit * 48);   // 192px
+$spacing-52: calc($spacing-unit * 52);   // 208px
+$spacing-56: calc($spacing-unit * 56);   // 224px
+$spacing-60: calc($spacing-unit * 60);   // 240px
+$spacing-64: calc($spacing-unit * 64);   // 256px
+$spacing-72: calc($spacing-unit * 72);   // 288px
+$spacing-80: calc($spacing-unit * 80);   // 320px
+$spacing-96: calc($spacing-unit * 96);   // 384px
+
+// Spacing Map
+$spacing: (
+  0: $spacing-0,
+  px: $spacing-px,
+  0.5: $spacing-0-5,
+  1: $spacing-1,
+  1.5: $spacing-1-5,
+  2: $spacing-2,
+  2.5: $spacing-2-5,
+  3: $spacing-3,
+  3.5: $spacing-3-5,
+  4: $spacing-4,
+  5: $spacing-5,
+  6: $spacing-6,
+  7: $spacing-7,
+  8: $spacing-8,
+  9: $spacing-9,
+  10: $spacing-10,
+  11: $spacing-11,
+  12: $spacing-12,
+  14: $spacing-14,
+  16: $spacing-16,
+  20: $spacing-20,
+  24: $spacing-24,
+  28: $spacing-28,
+  32: $spacing-32,
+  36: $spacing-36,
+  40: $spacing-40,
+  44: $spacing-44,
+  48: $spacing-48,
+  52: $spacing-52,
+  56: $spacing-56,
+  60: $spacing-60,
+  64: $spacing-64,
+  72: $spacing-72,
+  80: $spacing-80,
+  96: $spacing-96
+);
+
+// Border Radius
+$border-radius-none: 0;
+$border-radius-sm: 0.125rem;   // 2px
+$border-radius-base: 0.25rem;  // 4px
+$border-radius-md: 0.375rem;   // 6px
+$border-radius-lg: 0.5rem;     // 8px
+$border-radius-xl: 0.75rem;    // 12px
+$border-radius-2xl: 1rem;      // 16px
+$border-radius-3xl: 1.5rem;    // 24px
+$border-radius-full: 9999px;
+
+$border-radius: (
+  none: $border-radius-none,
+  sm: $border-radius-sm,
+  base: $border-radius-base,
+  md: $border-radius-md,
+  lg: $border-radius-lg,
+  xl: $border-radius-xl,
+  2xl: $border-radius-2xl,
+  3xl: $border-radius-3xl,
+  full: $border-radius-full
+);
+
+// Border Width
+$border-width-0: 0;
+$border-width-1: 1px;
+$border-width-2: 2px;
+$border-width-4: 4px;
+$border-width-8: 8px;
+
+$border-width: (
+  0: $border-width-0,
+  1: $border-width-1,
+  2: $border-width-2,
+  4: $border-width-4,
+  8: $border-width-8
+);

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React Example - Unified Theme</title>
+    <link rel="stylesheet" href="../../dist/unified-theme.css">
+</head>
+<body>
+    <div class="container my-8">
+        <h1 class="text-heading-xl mb-6">React Integration Example</h1>
+        
+        <div class="alert alert-info mb-6">
+            <strong>Note:</strong> This is a static HTML example showing how Unified Theme works with React components.
+            In a real React app, you would import the CSS and use the classes directly on your JSX elements.
+        </div>
+        
+        <!-- React Component Examples -->
+        <div class="card mb-8">
+            <div class="card-header">
+                <h2 class="card-title">React Button Component</h2>
+            </div>
+            <div class="card-body">
+                <p class="card-text mb-4">
+                    Here's how you might create a Button component in React using Unified Theme classes:
+                </p>
+                
+                <div class="bg-neutral-100 p-4 rounded-md mb-4">
+                    <code class="text-sm">
+                        <pre>
+// Button.jsx
+import React from 'react';
+
+const Button = ({ 
+  children, 
+  variant = 'primary', 
+  size = 'md', 
+  disabled = false, 
+  onClick,
+  ...props 
+}) => {
+  const baseClasses = 'btn';
+  const variantClass = `btn-${variant}`;
+  const sizeClass = `btn-${size}`;
+  
+  const className = [
+    baseClasses,
+    variantClass,
+    sizeClass,
+    disabled && 'disabled'
+  ].filter(Boolean).join(' ');
+  
+  return (
+    &lt;button 
+      className={className}
+      disabled={disabled}
+      onClick={onClick}
+      {...props}
+    &gt;
+      {children}
+    &lt;/button&gt;
+  );
+};
+
+export default Button;
+                        </pre>
+                    </code>
+                </div>
+                
+                <p class="text-sm text-neutral-600 mb-4">Usage:</p>
+                <div class="component-preview">
+                    <div class="flex gap-3 flex-wrap">
+                        <button class="btn btn-primary btn-md">Primary</button>
+                        <button class="btn btn-secondary btn-md">Secondary</button>
+                        <button class="btn btn-outline-primary btn-md">Outline</button>
+                        <button class="btn btn-primary btn-lg">Large</button>
+                        <button class="btn btn-primary btn-sm">Small</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Form Component Example -->
+        <div class="card mb-8">
+            <div class="card-header">
+                <h2 class="card-title">React Form Components</h2>
+            </div>
+            <div class="card-body">
+                <div class="bg-neutral-100 p-4 rounded-md mb-4">
+                    <code class="text-sm">
+                        <pre>
+// Input.jsx
+import React from 'react';
+
+const Input = ({ 
+  label, 
+  error, 
+  helpText, 
+  size = 'md',
+  ...props 
+}) => {
+  const inputClass = [
+    'form-control',
+    size !== 'md' && `form-control-${size}`,
+    error && 'form-control-error'
+  ].filter(Boolean).join(' ');
+  
+  return (
+    &lt;div className="form-group"&gt;
+      {label && (
+        &lt;label className="form-label"&gt;{label}&lt;/label&gt;
+      )}
+      &lt;input className={inputClass} {...props} /&gt;
+      {error && (
+        &lt;div className="text-error-600 text-sm mt-1"&gt;{error}&lt;/div&gt;
+      )}
+      {helpText && (
+        &lt;div className="form-text"&gt;{helpText}&lt;/div&gt;
+      )}
+    &lt;/div&gt;
+  );
+};
+                        </pre>
+                    </code>
+                </div>
+                
+                <div class="component-preview">
+                    <form class="space-y-4 max-w-md">
+                        <div class="form-group">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Email</label>
+                            <input type="email" class="form-control form-control-error" placeholder="Enter your email" value="invalid-email">
+                            <div class="text-error-600 text-sm mt-1">Please enter a valid email address</div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Message</label>
+                            <textarea class="form-control" rows="3" placeholder="Your message"></textarea>
+                            <div class="form-text">Maximum 500 characters</div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Card Component Example -->
+        <div class="card mb-8">
+            <div class="card-header">
+                <h2 class="card-title">React Card Component</h2>
+            </div>
+            <div class="card-body">
+                <div class="bg-neutral-100 p-4 rounded-md mb-4">
+                    <code class="text-sm">
+                        <pre>
+// Card.jsx
+import React from 'react';
+
+const Card = ({ 
+  children, 
+  variant = 'default', 
+  size = 'md',
+  interactive = false,
+  className = '',
+  ...props 
+}) => {
+  const cardClass = [
+    'card',
+    variant !== 'default' && `card-${variant}`,
+    size !== 'md' && `card-${size}`,
+    interactive && 'card-interactive',
+    className
+  ].filter(Boolean).join(' ');
+  
+  return (
+    &lt;div className={cardClass} {...props}&gt;
+      {children}
+    &lt;/div&gt;
+  );
+};
+
+const CardHeader = ({ children, className = '', ...props }) => (
+  &lt;div className={`card-header ${className}`} {...props}&gt;
+    {children}
+  &lt;/div&gt;
+);
+
+const CardBody = ({ children, className = '', ...props }) => (
+  &lt;div className={`card-body ${className}`} {...props}&gt;
+    {children}
+  &lt;/div&gt;
+);
+
+const CardTitle = ({ children, className = '', ...props }) => (
+  &lt;h3 className={`card-title ${className}`} {...props}&gt;
+    {children}
+  &lt;/h3&gt;
+);
+
+Card.Header = CardHeader;
+Card.Body = CardBody;
+Card.Title = CardTitle;
+
+export default Card;
+                        </pre>
+                    </code>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="card">
+                            <div class="card-header">
+                                <h3 class="card-title">Default Card</h3>
+                            </div>
+                            <div class="card-body">
+                                <p class="card-text">This is a default card with standard styling.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="card card-elevated card-interactive">
+                            <div class="card-body">
+                                <h3 class="card-title">Interactive Card</h3>
+                                <p class="card-text">This card is elevated and interactive. Try hovering over it!</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Integration Tips -->
+        <div class="card">
+            <div class="card-header">
+                <h2 class="card-title">Integration Tips</h2>
+            </div>
+            <div class="card-body">
+                <div class="space-y-4">
+                    <div class="alert alert-primary">
+                        <strong>CSS-in-JS:</strong> Unified Theme works great with styled-components, Emotion, and other CSS-in-JS libraries. Simply apply the classes using the <code>className</code> prop.
+                    </div>
+                    
+                    <div class="alert alert-success">
+                        <strong>Tailwind CSS:</strong> Unified Theme is designed to complement Tailwind CSS. You can use both systems together seamlessly.
+                    </div>
+                    
+                    <div class="alert alert-info">
+                        <strong>TypeScript:</strong> Create type definitions for your component props to ensure type safety when using Unified Theme classes.
+                    </div>
+                    
+                    <div class="alert alert-warning">
+                        <strong>Bundle Size:</strong> Import only the CSS you need by using the individual component stylesheets instead of the full bundle.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src="../../dist/unified-theme.js"></script>
+</body>
+</html>

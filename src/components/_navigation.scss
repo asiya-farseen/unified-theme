@@ -1,0 +1,382 @@
+// Unified Theme - Navigation Component
+// Navigation bars and menu components
+
+.navbar {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  padding: $spacing-4 $spacing-6;
+  background-color: $color-neutral-white;
+  border-bottom: 1px solid $color-neutral-200;
+}
+
+// Navbar brand
+.navbar-brand {
+  padding-top: 0;
+  padding-bottom: 0;
+  margin-right: $spacing-4;
+  font-size: $font-size-xl;
+  font-weight: $font-weight-bold;
+  line-height: inherit;
+  text-decoration: none;
+  color: $color-neutral-900;
+  
+  &:hover,
+  &:focus {
+    color: $color-neutral-900;
+    text-decoration: none;
+  }
+}
+
+// Navbar navigation
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  padding-left: 0;
+  margin-bottom: 0;
+  list-style: none;
+  
+  @include media-md {
+    flex-direction: row;
+  }
+}
+
+.nav-link {
+  display: block;
+  padding: $spacing-2 $spacing-4;
+  font-weight: $font-weight-medium;
+  color: $color-neutral-700;
+  text-decoration: none;
+  border-radius: $border-radius-base;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out;
+  
+  &:hover,
+  &:focus {
+    color: $color-primary-600;
+    background-color: $color-neutral-50;
+  }
+  
+  &.active {
+    color: $color-primary-600;
+    background-color: $color-primary-50;
+  }
+  
+  &.disabled {
+    color: $color-neutral-400;
+    pointer-events: none;
+    cursor: default;
+    background-color: transparent;
+  }
+}
+
+// Navbar toggler
+.navbar-toggler {
+  padding: $spacing-1 $spacing-2;
+  font-size: $font-size-lg;
+  line-height: 1;
+  background-color: transparent;
+  border: 1px solid $color-neutral-300;
+  border-radius: $border-radius-base;
+  cursor: pointer;
+  color: $color-neutral-700;
+  
+  &:hover,
+  &:focus {
+    text-decoration: none;
+    background-color: $color-neutral-50;
+    border-color: $color-neutral-400;
+  }
+  
+  &:focus {
+    box-shadow: 0 0 0 0.2rem rgba(14, 165, 233, 0.25);
+  }
+}
+
+.navbar-toggler-icon {
+  display: inline-block;
+  width: 1.5em;
+  height: 1.5em;
+  vertical-align: middle;
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+// Navbar collapse
+.navbar-collapse {
+  flex-basis: 100%;
+  flex-grow: 1;
+  align-items: center;
+  
+  @include media-md {
+    display: flex !important;
+    flex-basis: auto;
+  }
+}
+
+// Navbar variants
+.navbar-light {
+  background-color: $color-neutral-white;
+  border-color: $color-neutral-200;
+  
+  .navbar-brand {
+    color: $color-neutral-900;
+    
+    &:hover,
+    &:focus {
+      color: $color-neutral-900;
+    }
+  }
+  
+  .nav-link {
+    color: $color-neutral-700;
+    
+    &:hover,
+    &:focus {
+      color: $color-primary-600;
+    }
+    
+    &.active {
+      color: $color-primary-600;
+    }
+    
+    &.disabled {
+      color: $color-neutral-400;
+    }
+  }
+  
+  .navbar-toggler {
+    color: $color-neutral-700;
+    border-color: $color-neutral-300;
+  }
+}
+
+.navbar-dark {
+  background-color: $color-neutral-800;
+  border-color: $color-neutral-700;
+  
+  .navbar-brand {
+    color: $color-neutral-white;
+    
+    &:hover,
+    &:focus {
+      color: $color-neutral-white;
+    }
+  }
+  
+  .nav-link {
+    color: $color-neutral-300;
+    
+    &:hover,
+    &:focus {
+      color: $color-primary-300;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    &.active {
+      color: $color-primary-300;
+      background-color: rgba(14, 165, 233, 0.1);
+    }
+    
+    &.disabled {
+      color: $color-neutral-600;
+    }
+  }
+  
+  .navbar-toggler {
+    color: $color-neutral-300;
+    border-color: $color-neutral-600;
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+}
+
+.navbar-primary {
+  background-color: $color-primary-600;
+  border-color: $color-primary-700;
+  color: $color-neutral-white;
+  
+  .navbar-brand {
+    color: $color-neutral-white;
+    
+    &:hover,
+    &:focus {
+      color: $color-neutral-white;
+    }
+  }
+  
+  .nav-link {
+    color: rgba(255, 255, 255, 0.9);
+    
+    &:hover,
+    &:focus {
+      color: $color-neutral-white;
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    &.active {
+      color: $color-neutral-white;
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+    
+    &.disabled {
+      color: rgba(255, 255, 255, 0.5);
+    }
+  }
+  
+  .navbar-toggler {
+    color: rgba(255, 255, 255, 0.9);
+    border-color: rgba(255, 255, 255, 0.3);
+  }
+  
+  .navbar-toggler-icon {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+}
+
+// Breadcrumb
+.breadcrumb {
+  display: flex;
+  flex-wrap: wrap;
+  padding: $spacing-3 0;
+  margin-bottom: $spacing-4;
+  list-style: none;
+  background-color: transparent;
+}
+
+.breadcrumb-item {
+  display: flex;
+  
+  + .breadcrumb-item {
+    padding-left: $spacing-2;
+    
+    &::before {
+      display: inline-block;
+      padding-right: $spacing-2;
+      color: $color-neutral-500;
+      content: "/";
+    }
+  }
+  
+  &.active {
+    color: $color-neutral-600;
+  }
+}
+
+.breadcrumb-item:not(.active) a {
+  color: $color-primary-600;
+  text-decoration: none;
+  
+  &:hover {
+    color: $color-primary-700;
+    text-decoration: underline;
+  }
+}
+
+// Pagination
+.pagination {
+  display: flex;
+  padding-left: 0;
+  list-style: none;
+  border-radius: $border-radius-base;
+}
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: $spacing-2 $spacing-3;
+  margin-left: -1px;
+  line-height: 1.25;
+  color: $color-primary-600;
+  text-decoration: none;
+  background-color: $color-neutral-white;
+  border: 1px solid $color-neutral-300;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+  
+  &:hover {
+    z-index: 2;
+    color: $color-primary-700;
+    background-color: $color-neutral-100;
+    border-color: $color-neutral-300;
+  }
+  
+  &:focus {
+    z-index: 3;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(14, 165, 233, 0.25);
+  }
+}
+
+.page-item {
+  &:first-child .page-link {
+    margin-left: 0;
+    border-top-left-radius: $border-radius-base;
+    border-bottom-left-radius: $border-radius-base;
+  }
+  
+  &:last-child .page-link {
+    border-top-right-radius: $border-radius-base;
+    border-bottom-right-radius: $border-radius-base;
+  }
+  
+  &.active .page-link {
+    z-index: 3;
+    color: $color-neutral-white;
+    background-color: $color-primary-600;
+    border-color: $color-primary-600;
+    cursor: default;
+  }
+  
+  &.disabled .page-link {
+    color: $color-neutral-500;
+    pointer-events: none;
+    cursor: auto;
+    background-color: $color-neutral-white;
+    border-color: $color-neutral-300;
+  }
+}
+
+// Pagination sizes
+.pagination-sm {
+  .page-link {
+    padding: $spacing-1 $spacing-2;
+    font-size: $font-size-sm;
+  }
+  
+  .page-item {
+    &:first-child .page-link {
+      border-top-left-radius: $border-radius-sm;
+      border-bottom-left-radius: $border-radius-sm;
+    }
+    
+    &:last-child .page-link {
+      border-top-right-radius: $border-radius-sm;
+      border-bottom-right-radius: $border-radius-sm;
+    }
+  }
+}
+
+.pagination-lg {
+  .page-link {
+    padding: $spacing-3 $spacing-4;
+    font-size: $font-size-lg;
+    line-height: 1.5;
+  }
+  
+  .page-item {
+    &:first-child .page-link {
+      border-top-left-radius: $border-radius-lg;
+      border-bottom-left-radius: $border-radius-lg;
+    }
+    
+    &:last-child .page-link {
+      border-top-right-radius: $border-radius-lg;
+      border-bottom-right-radius: $border-radius-lg;
+    }
+  }
+}
